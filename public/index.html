@@ -63,7 +63,10 @@
   
   <script type="text/javascript">
   var colors = { "A": "red", "C":"blue", "G": "green", "T": "orange"};
-  var readSequences = ["AGATCGACCCT","GGAACGACGCT","GGATCGACCCT","CGATAGACGCT","CGATAGACGCT","GGATCGACCCT"];
+  var input = "> 1\nAGATCGACCCT\n> 2\nGGAACGACGCT\n> 3\nGGATCGACCCT\n> 4\nCGATAGACGCT\n> 5\nCGATAGACGCT\n> 6\nGGATCGACCCT";
+  var readSequences = input.split(/\n*>\s\d\n/);
+  readSequences.shift();
+  //var readSequences = ["AGATCGACCCT","GGAACGACGCT","GGATCGACCCT","CGATAGACGCT","CGATAGACGCT","GGATCGACCCT"];
   //var readSequences = ["AGATCG","GGAACG","GGATCG","CGATAG","CGATAG","GGATCG"];
     var orderedSequences = [];
     var sequences = [];
@@ -108,7 +111,6 @@
 
 
   <script>
-    console.log(orderedSequences);
     var mainSel = d3.select(".main-container").selectAll("p");
     var eachPos = mainSel.data(orderedSequences).enter().append("div").attr("class","each-pos").style("width", Math.floor( (100/ (orderedSequences.length+2))-2 ) + "%");
     var eachNucleotideWithinPos = eachPos.selectAll("p").data( function(d,i) { return d3.entries(d); }  ).enter().append("div").attr("class","each-nucleotide-in-pos").style("height", function(d) { return ( (d.value/readSequences.length*100) + "%" ); } );
@@ -126,5 +128,7 @@
 
     var eachLabel = labelSel.data(orderedSequences).enter().append("div").attr("class","each-label").style("width", Math.floor( (100/ (orderedSequences.length+2))-2 ) + "%").text(function (d,i) { return i+1; });
     labelSelMain.append("div").attr("class","label-ends").style("width", Math.floor( (100/ (orderedSequences.length+2))-2 ) + "%").text("3'");
+
+    console.log("complete");
   </script>
 </html>
