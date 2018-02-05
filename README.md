@@ -14,3 +14,7 @@ letter C (both would be shown) since the letter A appears three times as often a
 
 This sequence logo generator uses D3.js, an open-source JavaScript library used for visualizing data using SVG and HTML.  Although the 
 DNA sequences are hard-coded in this example, an HTML form can easily be made asking for input of DNA sequences.
+
+Example sequence-logo:
+
+![alt text](../example_sequence_logo.png)
