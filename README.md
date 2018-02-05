@@ -17,4 +17,4 @@ DNA sequences are hard-coded in this example, an HTML form can easily be made as
 
 Example sequence-logo:
 
-![alt text](../example_sequence_logo.png)
+![alt text](example_sequence_logo.png)
